@@ -1,5 +1,5 @@
 LOCAL_NAME=rails-base
-VERSION=ruby-2.3.0-gems-2.6.2
+VERSION=ruby-2.3.1-gems-2.6.8
 PUBLIC_NAME=rails-base
 REPOSITORY=874481312238.dkr.ecr.us-east-1.amazonaws.com
 
