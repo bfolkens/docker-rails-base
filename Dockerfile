@@ -4,7 +4,7 @@ RUN apt-get update && \
     apt-get install -y zlib1g-dev libssl-dev
 
 #
-# ruby
+# Ruby
 #
 
 # skip installing gem documentation
