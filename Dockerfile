@@ -4,7 +4,7 @@ RUN apt-get update && \
     apt-get install -y zlib1g-dev libssl-dev
 
 #
-# Ruby
+# ruby
 #
 
 # skip installing gem documentation
@@ -16,7 +16,7 @@ RUN mkdir -p /usr/local/etc \
 
 ENV RUBY_MAJOR 1.9
 ENV RUBY_VERSION 1.9.3-p551
-ENV RUBY_DOWNLOAD_SHA256 b0c5e37e3431d58613a160504b39542ec687d473de1d4da983dabcf3c5de771e
+ENV RUBY_DOWNLOAD_SHA256 bb5be55cd1f49c95bb05b6f587701376b53d310eb1bb7c76fbd445a1c75b51e8
 ENV RUBYGEMS_VERSION 1.8.23.2
 
 # some of ruby's build scripts are written in ruby
