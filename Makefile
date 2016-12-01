@@ -1,7 +1,7 @@
 LOCAL_NAME=rails-base
-VERSION=ruby-2.3.1-gems-2.6.8
+VERSION=ruby-1.9.3-gems-1.8.23.2
 PUBLIC_NAME=rails-base
-REPOSITORY=874481312238.dkr.ecr.us-east-1.amazonaws.com
+REPOSITORY=bfolkens
 
 
 .PHONY: all build tag release
