@@ -1,6 +1,6 @@
 LOCAL_NAME=rails-base
 VERSION=ruby-2.3.3-gems-2.6.8
-PUBLIC_NAME=rails-base
+PUBLIC_NAME=docker-rails-base
 REPOSITORY=bfolkens
 
 
