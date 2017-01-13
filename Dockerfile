@@ -1,7 +1,7 @@
 FROM phusion/baseimage:0.9.18
 
 RUN apt-get update && \
-    apt-get install -y zlib1g-dev libssl-dev
+    apt-get install -y zlib1g-dev libssl-dev libreadline6 rlwrap readline-common libreadline6-dev
 
 #
 # ruby
