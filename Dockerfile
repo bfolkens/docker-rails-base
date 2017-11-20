@@ -16,7 +16,7 @@ RUN mkdir -p /usr/local/etc \
 
 ENV RUBY_MAJOR 2.4
 ENV RUBY_VERSION 2.4.2
-ENV RUBY_DOWNLOAD_SHA256 a330e10d5cb5e53b3a0078326c5731888bb55e32c4abfeb27d9e7f8e5d000250
+ENV RUBY_DOWNLOAD_SHA256 93b9e75e00b262bc4def6b26b7ae8717efc252c47154abb7392e54357e6c8c9c
 ENV RUBYGEMS_VERSION 2.7.2
 
 # some of ruby's build scripts are written in ruby
@@ -49,7 +49,7 @@ RUN set -ex \
 
 ENV BUNDLER_VERSION 1.13
 
-RUN gem install bundler --version "$BUNDLER_VERSION"
+RUN rm /usr/local/bin/bundle && gem install bundler --version "$BUNDLER_VERSION"
 
 # install things globally, for great justice
 # and don't create ".bundle" in all our apps
