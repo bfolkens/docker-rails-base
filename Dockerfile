@@ -49,7 +49,7 @@ RUN set -ex \
 
 ENV BUNDLER_VERSION 1.13
 
-RUN gem install bundler --version "$BUNDLER_VERSION"
+RUN rm /usr/local/bin/bundle && gem install bundler --version "$BUNDLER_VERSION"
 
 # install things globally, for great justice
 # and don't create ".bundle" in all our apps
