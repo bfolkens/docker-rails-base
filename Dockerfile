@@ -1,7 +1,7 @@
-FROM phusion/baseimage:0.9.18
+FROM localhost/phusion/baseimage:0.10.0
 
 RUN apt-get update && \
-    apt-get install -y zlib1g-dev libssl-dev
+    apt-get install -y zlib1g-dev libssl-dev wget
 
 #
 # ruby
@@ -14,10 +14,10 @@ RUN mkdir -p /usr/local/etc \
 		echo 'update: --no-document'; \
 	} >> /usr/local/etc/gemrc
 
-ENV RUBY_MAJOR 2.3
-ENV RUBY_VERSION 2.3.0
-ENV RUBY_DOWNLOAD_SHA256 ba5ba60e5f1aa21b4ef8e9bf35b9ddb57286cb546aac4b5a28c71f459467e507
-ENV RUBYGEMS_VERSION 2.6.2
+ENV RUBY_MAJOR 1.9
+ENV RUBY_VERSION 1.9.3-p551
+ENV RUBY_DOWNLOAD_SHA256 bb5be55cd1f49c95bb05b6f587701376b53d310eb1bb7c76fbd445a1c75b51e8
+ENV RUBYGEMS_VERSION 1.8.23.2
 
 # some of ruby's build scripts are written in ruby
 # we purge this later to make sure our final image uses what we just built
@@ -40,14 +40,14 @@ RUN set -ex \
 	&& cd /usr/src/ruby \
 	&& { echo '#define ENABLE_PATH_CHECK 0'; echo; cat file.c; } > file.c.new && mv file.c.new file.c \
 	&& autoconf \
-	&& ./configure --disable-install-doc \
+	&& ./configure --disable-install-doc --build=aarch64-unknown-linux-gnu \
 	&& make -j"$(nproc)" \
 	&& make install \
 	&& apt-get purge -y --auto-remove $buildDeps \
 	&& gem update --system $RUBYGEMS_VERSION \
 	&& rm -r /usr/src/ruby
 
-ENV BUNDLER_VERSION 1.11.2
+ENV BUNDLER_VERSION 1.17.3
 
 RUN gem install bundler --version "$BUNDLER_VERSION"
 

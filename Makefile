@@ -1,5 +1,5 @@
 LOCAL_NAME=rails-base
-VERSION=ruby-2.3.0-gems-2.6.2
+VERSION=ruby-1.9.3-gems-1.8.23.2
 PUBLIC_NAME=rails-base
 REPOSITORY=874481312238.dkr.ecr.us-east-1.amazonaws.com
 
@@ -9,11 +9,11 @@ REPOSITORY=874481312238.dkr.ecr.us-east-1.amazonaws.com
 all: build
 
 build:
-	docker build -t $(LOCAL_NAME):$(VERSION) --rm .
+	podman build -t $(LOCAL_NAME):$(VERSION) --rm .
 
 tag: build
-	docker tag $(LOCAL_NAME):$(VERSION) $(REPOSITORY)/$(PUBLIC_NAME):$(VERSION)
+	podman tag $(LOCAL_NAME):$(VERSION) $(REPOSITORY)/$(PUBLIC_NAME):$(VERSION)
 
 release: tag
-	docker push $(REPOSITORY)/$(PUBLIC_NAME):$(VERSION)
+	podman push $(REPOSITORY)/$(PUBLIC_NAME):$(VERSION)
 
